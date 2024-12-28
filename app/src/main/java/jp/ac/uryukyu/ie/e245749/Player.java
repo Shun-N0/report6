@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Player{
+    String name;
     ArrayList<Object> myCardArrayList;
  
     Player() {
+        this.name = "プレイヤー";
         this.myCardArrayList = new ArrayList<>();
     }
  
@@ -18,6 +20,21 @@ public class Player{
     }
  
     void showcard() {
-        System.out.println("プレイヤー;" +myCardArrayList);
+        System.out.println("・" + name + ";" +myCardArrayList);
     }
+
+    void act(Deck deck) {
+        var command_selector = new CommandSelector();
+        boolean bool = true;
+        while (bool) {
+            var command_number = command_selector.waitForUsersCommand(name);
+            if(command_number == 0){
+                draw(deck);
+                showcard();
+            }else{
+                bool = false;
+            }
+        }
+    }
+
  }
