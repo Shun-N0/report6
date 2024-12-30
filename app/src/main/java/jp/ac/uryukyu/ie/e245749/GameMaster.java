@@ -3,29 +3,31 @@ package jp.ac.uryukyu.ie.e245749;
 public class GameMaster extends Player {
 
     GameMaster(){
+        super();
+        this.name = "ゲームマスター";
     }
 
-    @Override
-    void showcard() {
-        System.out.println("・ゲームマスター;" +myCardArrayList);
-    }
-    
     void firstShowCard(){
-        System.out.println("・ゲームマスター:[" + myCardArrayList.get(0) + "]");
+        System.out.println("・" + name + ":[" + myCardArrayList.get(0) + "]");
     }
 
     @Override
     void act(Deck deck) {
-        var command_selector = new CommandSelector();
-        boolean bool = true;
-        while (bool) {
-            var command_number = command_selector.waitForUsersCommand(name);
-            if(command_number == 0){
-                draw(deck);
-                showcard();
-            }else{
-                bool = false;
-            }
+        showcard();
+        while (sum < 17){
+            draw(deck);
+            showcard();
+        }
+        System.out.println("・ゲームマスターの合計：" + sum);
+    }
+
+    void judge(Player player) {
+        if(sum > player.sum) {
+            System.out.println(player.name + "の負けです");
+        }else if (sum < player.sum) {
+            System.out.println(player.name + "勝ちです！");
+        }else{
+            System.out.println("引き分けです");
         }
     }
 }
