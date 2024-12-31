@@ -11,10 +11,6 @@ public class CommandSelector {
         commands = new ArrayList<>();
     }
 
-    void addCommand(String command_name) {
-        commands.add(command_name);
-    }
-
     int waitForUsersCommand(String name) {
         // ユーザーに入力を促すメッセージ
         System.out.print(name + "のターンです\nカードをひきますか:\n 0:ひく\n 1:ひかない\n");

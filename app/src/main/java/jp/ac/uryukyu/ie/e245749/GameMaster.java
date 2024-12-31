@@ -18,16 +18,20 @@ public class GameMaster extends Player {
             draw(deck);
             showcard();
         }
-        System.out.println("・ゲームマスターの合計：" + sum);
+        System.out.println("・" + name + "の合計：" + sum);
     }
 
     void judge(Player player) {
-        if(sum > player.sum) {
-            System.out.println(player.name + "の負けです");
-        }else if (sum < player.sum) {
-            System.out.println(player.name + "勝ちです！");
+        if(this.sum > 21){
+            System.out.println("バースト！！！\n" + player.name + "の勝ちです！！");
         }else{
-            System.out.println("引き分けです");
+            if(sum > player.sum) {
+                System.out.println(player.name + "の負けです");
+            }else if (sum < player.sum) {
+                System.out.println(player.name + "勝ちです！");
+            }else{
+                System.out.println("引き分けです");
+            }
         }
     }
 }

@@ -34,12 +34,17 @@ public class Player{
             if(command_number == 0){
                 draw(deck);
                 showcard();
+                if(sum > 21){
+                    System.out.println("・" + name + "の合計：" + sum);
+                    System.out.println("バースト！！！\n" + name + "の負けです");
+                    bool = false;
+                }
             }else{
-                bool = false;
                 showcard();
+                System.out.println("・" + name + "の合計：" + sum);
+                bool = false;
             }
         }
-        System.out.println("・" + name + "の合計：" + sum);
     }
 
     int sum(Object card){

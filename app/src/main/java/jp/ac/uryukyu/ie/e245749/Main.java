@@ -14,10 +14,13 @@ public class Main{
         player.showcard();
 
         player.act(deck);
-        master.act(deck);
-
-        player.result();
-        master.result();
-        master.judge(player);
+        if(player.sum <= 21){
+            master.act(deck);
+            if(master.sum <= 21){
+            player.result();
+            master.result();
+            }
+            master.judge(player);
+        }
     }
 }
