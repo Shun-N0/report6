@@ -8,7 +8,7 @@ class sumTest {
     @Test
     public void testsum() {
         Deck deck = new Deck();
-        Player player = new Player();
+        Player player = new Player("プレイヤー");
         player.draw(deck);
 
         int sum = 0;

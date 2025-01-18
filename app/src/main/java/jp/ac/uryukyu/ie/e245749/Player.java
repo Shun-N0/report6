@@ -8,8 +8,8 @@ public class Player{
     int sum;
     ArrayList<Object> myCardArrayList;
  
-    Player() {
-        this.name = "プレイヤー";
+    Player(String name) {
+        this.name = name;
         this.sum = 0;
         this.myCardArrayList = new ArrayList<>();
     }
@@ -27,21 +27,25 @@ public class Player{
     }
 
     void act(Deck deck) {
+        showcard();
         var command_selector = new CommandSelector();
         boolean bool = true;
         while (bool) {
-            var command_number = command_selector.waitForUsersCommand(name);
+            var command_number = command_selector.waitForUsersCommand_draw(name);
             if(command_number == 0){
                 draw(deck);
                 showcard();
                 if(sum > 21){
                     System.out.println("・" + name + "の合計：" + sum);
-                    System.out.println("バースト！！！\n" + name + "の負けです");
+                    System.out.println("バースト！！！\n" + name + "の負けです\n");
                     bool = false;
                 }
             }else{
                 showcard();
-                System.out.println("・" + name + "の合計：" + sum);
+                if(myCardArrayList.contains("A") && sum <= 11){
+                    sum += 10;
+                }
+                System.out.println("・" + name + "の合計：" + sum + "\n");
                 bool = false;
             }
         }

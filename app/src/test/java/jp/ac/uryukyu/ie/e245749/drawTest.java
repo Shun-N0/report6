@@ -8,11 +8,11 @@ class drawTest {
     @Test
     public void testPlayerDrawsCard() {
         Deck deck = new Deck();
-        Player player = new Player();
+        Player player = new Player("プレイヤー");
         int initialDeckSize = deck.playingCards.size();
         player.draw(deck);
         
         // プレイヤーがカードを引いた後、デッキのサイズは1枚減るはず
-        assertEquals(initialDeckSize - 1, deck.playingCards.size(), "Deck size should decrease by 1 after drawing a card");
+        assertEquals(initialDeckSize - 1, deck.playingCards.size());
     }
 }
