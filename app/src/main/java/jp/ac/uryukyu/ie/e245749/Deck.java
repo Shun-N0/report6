@@ -2,7 +2,7 @@ package jp.ac.uryukyu.ie.e245749;
 
 import java.util.ArrayList;
 
-public class Deck {
+public class Deck {//山札を作るクラス
     ArrayList<Object> playingCards;
 
     Deck(){

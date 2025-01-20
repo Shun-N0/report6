@@ -2,7 +2,9 @@ package jp.ac.uryukyu.ie.e245749;
 
 import java.util.ArrayList;
 
-public class Main{
+public class Main{//動作を実行するクラス
+
+    //動作を実行するメソッド
     public static void main(String[] args) {
         int NumberOfBursts = 0;
         ArrayList<Player> players = new ArrayList<>();

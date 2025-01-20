@@ -2,7 +2,7 @@ package jp.ac.uryukyu.ie.e245749;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CommandSelector {
+public class CommandSelector {//入力を促すメソッドを書くクラス
     ArrayList<String> commands;
     Scanner scanner;
 
@@ -11,6 +11,7 @@ public class CommandSelector {
         commands = new ArrayList<>();
     }
 
+    //カードを引くか引かないか問うメソッド
     int waitForUsersCommand_draw(String name) {
         System.out.print(name + "のターンです\nカードをひきますか:\n 0:ひく\n 1:ひかない\n");
 
@@ -38,6 +39,7 @@ public class CommandSelector {
         }
     }
 
+    //ゲームを行う人数を問うメソッド
     int waitForUsersCommand_start() {
         // ユーザーに入力を促すメッセージ
         System.out.print("何人でプレーしますか？");

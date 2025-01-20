@@ -3,7 +3,7 @@ package jp.ac.uryukyu.ie.e245749;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Player{
+public class Player{//プレイヤーのクラス
     String name;
     int sum;
     ArrayList<Object> myCardArrayList;
@@ -14,6 +14,7 @@ public class Player{
         this.myCardArrayList = new ArrayList<>();
     }
  
+    //山札からカードを引いて、手札の合計を保存するメソッド
     void draw(Deck deck){
         Random rand = new Random();
         int index = rand.nextInt(deck.playingCards.size());
@@ -22,10 +23,12 @@ public class Player{
         deck.playingCards.remove(index);
     }
  
+    //その時の手札を全て表示するメソッド
     void showcard() {
         System.out.println("・" + name + ":" +myCardArrayList);
     }
 
+    //プレイヤーが引きたいだけ引くためのメソッド
     void act(Deck deck) {
         showcard();
         var command_selector = new CommandSelector();
@@ -51,6 +54,7 @@ public class Player{
         }
     }
 
+    //手札の合計を計算するメソッド
     int sum(Object card){
         if(card == "A"){
             sum += 1;
@@ -62,6 +66,7 @@ public class Player{
         return sum;
     }
 
+    //手札とその合計を表示するためのメソッド
     void result(){
         System.out.println(name + ": " + sum + "  " + myCardArrayList);
     }
